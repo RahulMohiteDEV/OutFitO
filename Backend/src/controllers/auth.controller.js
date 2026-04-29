@@ -2,14 +2,15 @@ import userModel from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 import { config } from "../config/config.js";
 
-async function sendTokenResponse(user, res, meassage) {
+async function sendTokenResponse(user, res, message) {
   const token = jwt.sign({ id: user._id }, config.JWT_SECRET, {
     expiresIn: "7d",
   });
 
   res.cookie("token", token);
+
   res.status(200).json({
-    message: "User registered successfully",
+    message,
     success: true,
     user: {
       id: user._id,
