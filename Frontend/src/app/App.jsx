@@ -1,11 +1,15 @@
 import React from 'react'
 import './App.css'
+import routes from './app.routes'
+import { RouterProvider } from 'react-router'
 
 const App = () => {
+
   return (
-    <div className='text-3xl font-bold underline'>
-      dcdscdscd
-    </div>
+    <>
+    
+      <RouterProvider router={routes} />    
+        </>
   )
 }
 
