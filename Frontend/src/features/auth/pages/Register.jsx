@@ -168,6 +168,12 @@ export default function Register() {
               </span>
             </label>
 
+            <a href="/api/auth/google"
+            className="text-sm cursor-pointer text-white"
+            >
+           Continue with Google
+            </a>
+
             {/* Sign Up Button */}
             <button
               type="submit"

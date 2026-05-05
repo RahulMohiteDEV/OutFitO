@@ -27,7 +27,7 @@ export default function Login() {
         try {
             const user = await handleLogin({ email: formData.email, password: formData.password });
             if (user.role == "buyer") {
-                navigate("/register");
+                navigate("/");
             } else if (user.role == "seller") {
                 navigate("/seller/dashboard");
             }

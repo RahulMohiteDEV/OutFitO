@@ -4,6 +4,10 @@ import Login from '../features/auth/pages/Login'
 
 
  const routes  = createBrowserRouter([
+    {
+         path: '/',
+         element: <h1>Home</h1>
+    },
 
     {
         path: '/register',
