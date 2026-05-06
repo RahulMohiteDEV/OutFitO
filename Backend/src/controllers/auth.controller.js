@@ -83,7 +83,7 @@ export const googleCallback = async (req, res) => {
         email
     })
 
-    if (!user) {
+    if (!user) { 
         user = await userModel.create({
             email,
             googleId: id,
