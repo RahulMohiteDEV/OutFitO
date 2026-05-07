@@ -29,7 +29,7 @@ export default function Login() {
             if (user.role == "buyer") {
                 navigate("/");
             } else if (user.role == "seller") {
-                navigate("/seller/dashboard");
+                navigate("/");
             }
         } catch (error) {
             console.error("Login failed", error);

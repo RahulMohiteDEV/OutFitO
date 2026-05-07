@@ -14,7 +14,12 @@ export const createProductValidator = [
     body("title").notEmpty().withMessage("Title is required"),
     body("description").notEmpty().withMessage("Description is required"),
     body("price").isObject().withMessage("Price is required"),
-    body("price.amount").isNumeric().withMessage("Price amount must be a number"),
-    body("price.currency").notEmpty().withMessage("Price currency is required"),
-    validateRequest
+  body("priceAmount")
+  .notEmpty()
+  .isNumeric()
+  .withMessage("Price amount must be a number"),
+
+body("priceCurrency")
+  .notEmpty()
+  .withMessage("Price currency is required"),
 ]

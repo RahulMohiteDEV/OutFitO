@@ -10,10 +10,16 @@ const productSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    price:{
-        type:Number,
-        required:true
-    },
+   price: {
+   amount: {
+      type: Number,
+      required: true
+   },
+   currency: {
+      type: String,
+      required: true
+   }
+},
     seller:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User',
