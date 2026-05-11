@@ -2,8 +2,22 @@ import React from 'react'
 import './App.css'
 import routes from './app.routes'
 import { RouterProvider } from 'react-router'
+import { useAuth } from '../features/auth/hook/useAuth'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 const App = () => {
+
+    const { handleGetMe } = useAuth()
+
+  const user = useSelector(state => state.auth.user)
+
+  console.log(user)
+
+  useEffect(() => {
+    handleGetMe()
+  }, [])
+
 
   return (
     <>
