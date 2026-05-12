@@ -17,138 +17,120 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-hidden">
-      {/* ================= HERO SECTION ================= */}
+    <div className="min-h-screen bg-black text-white overflow-hidden" style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+     
 
-      <section className="relative px-6 lg:px-20 pt-24 pb-20">
-        {/* Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-cyan-500/20 blur-[150px] rounded-full" />
+      {/* ================= HERO SECTION - SHELF DISPLAY ================= */}
+      <section className="pt-40 pb-32 px-6 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            {/* Left Content */}
+            <div>
+              <p className="text-[#8B7355] text-xs uppercase tracking-[0.25em] mb-8" style={{ letterSpacing: '0.25em' }}>Collection Curated</p>
+              <h1 className="text-6xl md:text-7xl font-light leading-[0.9] tracking-tight mb-8" style={{ lineHeight: '0.9', letterSpacing: '0.02em' }}>
+                Premium <span className="text-[#8B7355]">Crafted</span> Fashion
+              </h1>
+              <p className="text-gray-400 text-base leading-relaxed mb-10 max-w-lg" style={{ lineHeight: '1.8' }}>
+                Discover meticulously selected pieces displayed with reverence. Each item represents timeless quality and authentic craftsmanship.
+              </p>
+              <div className="flex gap-6">
+                <button className="px-10 py-3 bg-[#8B7355] text-[#f5f1ed] font-light rounded hover:bg-[#a0845f] transition tracking-wide">
+                  EXPLORE
+                </button>
+                <button className="px-10 py-3 border border-[#8B7355]/50 text-[#8B7355] font-light rounded hover:border-[#8B7355] hover:bg-[#8B7355]/5 transition tracking-wide">
+                  DISCOVER
+                </button>
+              </div>
+            </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-8">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-sm text-gray-300">
-              Premium Fashion Collection
-            </span>
-          </div>
+            {/* Right - Shelf Display with Product */}
+            <div className="relative h-[600px]">
+              {/* Shelf */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 h-16 bg-gradient-to-b from-[#D4A574] to-[#A0845F] rounded-sm shadow-2xl" style={{ boxShadow: '0 30px 60px rgba(0,0,0,0.8)' }} />
+              
+              {/* Product Stack */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                {products?.[0]?.images?.[0] && (
+                  <img 
+                    src={products[0].images[0].url || products[0].images[0]} 
+                    alt="Featured"
+                    className="h-full w-full object-contain drop-shadow-2xl"
+                    style={{ filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.9))' }}
+                  />
+                )}
+              </div>
 
-          {/* Heading */}
-          <h1 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tight max-w-5xl">
-            Elevate Your{" "}
-            <span className="text-cyan-400">Style</span> With
-            <br />
-            Modern Fashion.
-          </h1>
-
-          {/* Subtext */}
-          <p className="mt-8 text-lg text-gray-400 max-w-2xl leading-relaxed">
-            Discover premium handcrafted fashion pieces designed for comfort,
-            elegance, and timeless streetwear aesthetics.
-          </p>
-
-          {/* CTA */}
-          <div className="mt-10 flex flex-wrap gap-4">
-            <button className="px-8 py-4 rounded-2xl bg-cyan-400 text-black font-semibold hover:scale-105 transition-all duration-300">
-              Explore Collection
-            </button>
-
-            <button className="px-8 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-300">
-              View Trending
-            </button>
+              {/* Lighting Effect */}
+              <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 30% 20%, rgba(139,115,85,0.15), transparent 60%)' }} />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ================= PRODUCTS SECTION ================= */}
+      {/* ================= DIVIDER ================= */}
+      <div className="px-6 lg:px-20">
+        <div className="max-w-7xl mx-auto border-t border-[#8B7355]/20" />
+      </div>
 
-      <section className="px-6 lg:px-20 py-20">
+      {/* ================= COLLECTION SHOWCASE ================= */}
+      <section className="py-32 px-6 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="flex items-center justify-between mb-14">
-            <div>
-              <p className="text-cyan-400 text-sm uppercase tracking-[0.3em] mb-3">
-                Latest Products
-              </p>
-
-              <h2 className="text-4xl md:text-5xl font-bold">
-                Featured Collection
-              </h2>
-            </div>
-
-            <button className="hidden md:flex items-center gap-2 text-gray-300 hover:text-white transition-all">
-              View All
-              <ArrowRight size={18} />
-            </button>
+          <div className="mb-20">
+            <p className="text-[#8B7355] text-xs uppercase tracking-[0.25em] mb-6" style={{ letterSpacing: '0.25em' }}>Featured Selection</p>
+            <h2 className="text-5xl md:text-6xl font-light tracking-tight" style={{ letterSpacing: '0.02em' }}>Latest Collection</h2>
           </div>
 
-          {/* Product Grid */}
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+          {/* Products Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
             {products?.map((product) => (
-              <div
+              <div 
                 key={product._id}
-                className="group relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:border-cyan-400/30 transition-all duration-500"
+                onClick={() => navigate(`/product/${product._id}`)}
+                className="group cursor-pointer"
               >
-                {/* Image */}
-                <div className="relative h-[380px] overflow-hidden">
-                  <img
-                    src={product.images?.[0]?.url}
-                    alt={product.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-
-                  {/* Floating Price */}
-                  <div className="absolute top-5 right-5 px-4 py-2 rounded-full bg-black/60 backdrop-blur-xl border border-white/10">
-                    <p className="text-sm font-semibold text-cyan-400">
-                      ₹{product.price?.amount}
-                    </p>
+                {/* Image Container */}
+                <div className="relative mb-10 overflow-hidden h-[400px] bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f]">
+                  {product.images?.[0] ? (
+                    <img 
+                      src={product.images[0].url || product.images[0]} 
+                      alt={product.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      style={{ filter: 'brightness(0.95)' }}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-gray-700">
+                      No image
+                    </div>
+                  )}
+                  
+                  {/* Price Badge */}
+                  <div className="absolute top-8 right-8 bg-black/70 backdrop-blur border border-[#8B7355]/40 px-6 py-3 rounded">
+                    <p className="text-[#D4A574] font-light text-sm">₹{product.price?.amount?.toLocaleString()}</p>
                   </div>
+
+                  {/* Wishlist */}
+                  <button 
+                    onClick={(e) => e.stopPropagation()}
+                    className="absolute bottom-8 right-8 w-14 h-14 rounded-full bg-black/50 backdrop-blur border border-[#8B7355]/40 flex items-center justify-center hover:bg-black/70 transition text-[#8B7355] text-xl"
+                  >
+                    ♡
+                  </button>
                 </div>
 
-                {/* Content */}
-                <div className="p-7">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-bold tracking-tight">
-                      {product.title}
-                    </h3>
-
-                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                      <ShoppingBag size={18} />
-                    </div>
-                  </div>
-
-                  <p className="text-gray-400 leading-relaxed text-sm mb-6">
-                    {product.description}
+                {/* Product Info */}
+                <div>
+                  <p className="text-[#8B7355] text-xs uppercase tracking-[0.2em] mb-4 font-light" style={{ letterSpacing: '0.2em' }}>Premium Quality</p>
+                  <h3 className="text-3xl font-light mb-4 group-hover:text-[#8B7355] transition tracking-tight" style={{ letterSpacing: '0.01em' }}>
+                    {product.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-8" style={{ lineHeight: '1.7' }}>
+                    {product.description?.substring(0, 60)}...
                   </p>
-
-                  {/* Bottom */}
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs text-gray-500 mb-1">
-                        Premium Quality
-                      </p>
-
-                      <p className="font-semibold text-white">
-                        {product.price?.currency}
-                      </p>
-                    </div>
-
-                    <button
-                      onClick={() => navigate(`/product/${product._id}`)}
-                      className="px-5 py-3 rounded-2xl bg-cyan-400 text-black font-semibold hover:scale-105 transition-all duration-300"
-                    >
-                      View Product
-                    </button>
-                  </div>
-                </div>
-
-                {/* Glow Hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-cyan-400/20 blur-[80px]" />
+                  
+                  {/* Action */}
+                  <button className="w-full py-4 border border-[#8B7355]/50 text-[#8B7355] hover:border-[#8B7355] hover:bg-[#8B7355]/5 rounded transition font-light uppercase tracking-widest text-sm">
+                    View Item
+                  </button>
                 </div>
               </div>
             ))}
@@ -157,34 +139,27 @@ const Home = () => {
       </section>
 
       {/* ================= CTA SECTION ================= */}
-
-      <section className="px-6 lg:px-20 pb-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.03] backdrop-blur-2xl p-10 md:p-16">
-            {/* Glow */}
-            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-cyan-400/20 blur-[120px]" />
-
-            <div className="relative z-10">
-              <p className="text-cyan-400 uppercase tracking-[0.3em] text-sm mb-4">
-                Fashion Redefined
-              </p>
-
-              <h2 className="text-4xl md:text-6xl font-black leading-tight max-w-4xl">
-                Designed For The Modern Generation.
-              </h2>
-
-              <p className="mt-6 text-gray-400 max-w-2xl leading-relaxed">
-                Discover elegant, bold, and premium fashion products crafted to
-                make every outfit unforgettable.
-              </p>
-
-              <button className="mt-10 px-8 py-4 rounded-2xl bg-cyan-400 text-black font-semibold hover:scale-105 transition-all duration-300">
-                Shop Now
-              </button>
-            </div>
+      <section className="py-32 px-6 lg:px-20">
+        <div className="max-w-4xl mx-auto">
+          <div className="border border-[#8B7355]/30 bg-black/50 backdrop-blur p-16 md:p-20 text-center">
+            <p className="text-[#8B7355] text-xs uppercase tracking-[0.25em] mb-8" style={{ letterSpacing: '0.25em' }}>Exclusive Collection</p>
+            <h2 className="text-5xl md:text-6xl font-light mb-8 tracking-tight" style={{ letterSpacing: '0.01em' }}>
+              Timeless Elegance
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed text-base" style={{ lineHeight: '1.8' }}>
+              Experience the art of curated fashion. Every piece in our collection is thoughtfully selected for its quality, design, and cultural significance.
+            </p>
+            <button className="px-12 py-4 bg-[#8B7355] text-[#f5f1ed] font-light rounded hover:bg-[#a0845f] transition uppercase tracking-widest text-sm">
+              Explore Now
+            </button>
           </div>
         </div>
       </section>
+
+     
+
+      {/* Spacing for footer */}
+      <div className="h-24" />
     </div>
   );
 };

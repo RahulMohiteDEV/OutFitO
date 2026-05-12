@@ -119,6 +119,7 @@ const Dashboard = () => {
           {sellerProducts && sellerProducts.length > 0 ? (
             sellerProducts.map((product) => (
               <div
+              onClick={() => { navigate(`/seller/product/${product._id}`) }}
                 key={product._id}
                 style={{
                   background: "#fff",
