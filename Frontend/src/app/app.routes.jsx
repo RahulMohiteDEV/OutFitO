@@ -7,13 +7,13 @@ import Protected from '../features/auth/components/Protected';
 import Home from '../features/products/pages/Home';
 import ProductDetail from '../features/products/pages/ProductDetail';
 import SellerProductDetails from '../features/products/pages/SellerProductDetails';
+import Cart from '../features/cart/pages/Cart';
+import AppLayout from './AppLayout';
+import OrderSuccess from '../features/cart/pages/OrderSuccess';
+
 
  const routes  = createBrowserRouter([
-    {
-         path: '/',
-         element:<Home/>
-    },
-
+  
     {
         path: '/register',
         element: <Register />
@@ -24,9 +24,30 @@ import SellerProductDetails from '../features/products/pages/SellerProductDetail
         element: <Login />
 
     },
+
+     {
+        element:<AppLayout/>,
+        children:[
+             {
+         path: '/',
+         element:<Home/>
+    },
+    
     {
        path:'/product/:productId',
        element:<ProductDetail/>
+    },
+
+    {
+     path:'/cart',
+     element:<Protected>
+        <Cart/> 
+     </Protected>
+    },
+
+    {
+        path:'/order-success',
+        element:<OrderSuccess/>
     },
 
     {
@@ -38,6 +59,7 @@ import SellerProductDetails from '../features/products/pages/SellerProductDetail
                 <CreatePage/>
                  </Protected>
               },
+
               {
                 path:'/seller/dashboard',
                 element:
@@ -55,6 +77,8 @@ import SellerProductDetails from '../features/products/pages/SellerProductDetail
             }
        ]
     }
+        ]
+     }
 ])
 
 export default routes;
