@@ -2,7 +2,7 @@
 
 > A secure, scalable MERN-based e-commerce platform with role-based dashboards, payment integration, and a seamless shopping experience.
 
----
+--
 
 ##  Problem Statement
 
